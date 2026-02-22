@@ -1,14 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
-
-    // Load saved theme
     if(localStorage.getItem('theme') === 'dark'){
         body.classList.add('dark-theme');
         toggleBtn.textContent = '☀️';
     }
-
-    // Theme toggle with smooth color change
     toggleBtn.addEventListener('click', () => {
         body.classList.toggle('dark-theme');
         if(body.classList.contains('dark-theme')){
@@ -19,8 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleBtn.textContent = '🌙';
         }
     });
-
-    // Contact form
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', function(e){
         e.preventDefault();
@@ -35,8 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alert("Message sent successfully!");
         form.reset();
     });
-
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
         anchor.addEventListener('click', e=>{
             e.preventDefault();
