@@ -1,2 +1,2 @@
 # my-website
-First GitHub repository
+Web-Site for Assessment 1
