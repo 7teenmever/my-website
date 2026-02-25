@@ -8,67 +8,126 @@
 <script defer src="js/main.js"></script>
 </head>
 <body>
+<header class="header">
+    <div class="logo">Mever</div>
+    <div class="header-controls">
+        <nav class="nav">
+            <a href="#hero">Home</a>
+            <a href="#about-skills">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact-me">Contact Me</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+</header>
 <section id="hero">
     <h2>Hi, I'm Ibrohim also known as Mever</h2>
     <p>Cybersecurity Student & C/C++ Developer</p>
-    <a href="#projects" class="btn">View My Work</a>
 </section>
 <section id="about-skills">
-    <div class="about-box">
-        <h2>About Me</h2>
-        <p>I am a cybersecurity student passionate about programming and ethical hacking.
-        I enjoy working with C/C++, exploring Linux systems, and learning how security
-        vulnerabilities work in real-world applications.</p>
+    <div class="about-layout">
+        <article class="about-box">
+            <h2>About Me</h2>
+            <p class="about-text">I am a cybersecurity student focused on building a strong technical foundation and solving real problems through code. Right now, I am actively studying the Linux system environment and improving my understanding of how secure systems are built and maintained.</p>
+            <p class="about-text">I am learning programming languages such as C/C++, Python, and Frontend technologies (HTML, CSS, JavaScript). Along with theory, I practice by building small projects, improving my Git workflow, and exploring secure coding principles so I can grow into a reliable developer with a security-first mindset.</p>
+        </article>
+        <aside class="skills-box">
+            <h3>My Skills</h3>
+            <div class="skills-groups">
+                <div class="skill-group">
+                    <h4>Programming</h4>
+                    <div class="skills-container">
+                        <div class="skill"><span class="skill-logo">C</span><span>C</span></div>
+                        <div class="skill"><span class="skill-logo skill-logo-cpp">C++</span><span>C++</span></div>
+                        <div class="skill"><span class="skill-logo">Py</span><span>Python</span></div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Frontend</h4>
+                    <div class="skills-container">
+                        <div class="skill"><span class="skill-logo">HT</span><span>HTML</span></div>
+                        <div class="skill"><span class="skill-logo">CS</span><span>CSS</span></div>
+                        <div class="skill"><span class="skill-logo">JS</span><span>JavaScript</span></div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>System & Tools</h4>
+                    <div class="skills-container">
+                        <div class="skill"><span class="skill-logo">Lx</span><span>Linux</span></div>
+                        <div class="skill"><span class="skill-logo">Git</span><span>Git</span></div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Security & Network</h4>
+                    <div class="skills-container">
+                        <div class="skill"><span class="skill-logo">NET</span><span>Networking Basics</span></div>
+                        <div class="skill"><span class="skill-logo">SEC</span><span>Cybersecurity Basics</span></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </div>
-    <div class="skills-box">
-        <h2>My Skills</h2>
-        <div class="skills-container">
-            <div class="skill">C</div>
-            <div class="skill">C++</div>
-            <div class="skill">Linux</div>
-            <div class="skill">Git</div>
-            <div class="skill">Networking Basics</div>
-            <div class="skill">Cybersecurity Basics</div>
-        </div>
+    <div class="goal-box">
+        <h3>My Goal</h3>
+        <blockquote class="goal-quote">"My dream is to become a strong specialist in cybersecurity and game development, creating secure and valuable products."</blockquote>
     </div>
 </section>
 <section id="projects">
     <h2>My Projects</h2>
     <div class="projects-container">
-        <div class="project-card">
-            <h3>C++ Calculator</h3>
-            <p>A console calculator built using C++ with multiple operations.</p>
+        <div class="project-card project-cpp-card">
+            <div class="project-head">
+                <span class="project-icon project-icon-cpp">C++</span>
+                <h3>C++ Projects</h3>
+            </div>
+            <p class="project-subtitle">First semester projects</p>
+            <p>This repository contains my first semester C++ works and practical tasks.</p>
+            <a class="project-link" href="https://github.com/7teenmever/C-.git" target="_blank" rel="noopener noreferrer">View My Works</a>
         </div>
         <div class="project-card">
-            <h3>Banking System</h3>
+            <div class="project-head">
+                <span class="project-icon project-icon-bank">BNK</span>
+                <h3>Banking System</h3>
+            </div>
+            <p class="project-subtitle">Study project</p>
             <p>A simple banking simulation with login, balance tracking, and transactions.</p>
+            <span class="project-link project-link-disabled">Link coming soon</span>
         </div>
         <div class="project-card">
-            <h3>Personal Portfolio</h3>
+            <div class="project-head">
+                <span class="project-icon project-icon-web">WEB</span>
+                <h3>Personal Portfolio</h3>
+            </div>
+            <p class="project-subtitle">Frontend project</p>
             <p>This responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+            <span class="project-link project-link-disabled">Link coming soon</span>
         </div>
     </div>
 </section>
 <section id="contact-me">
     <div class="contact-form-box">
-        <h2>Contact Me</h2>
-        <form id="contact-form">
-            <label>Name:</label>
+        <div class="contact-header">
+            <h2>Contact Me</h2>
+            <p>Have an idea, project, or collaboration in mind? Send me a message.</p>
+        </div>
+        <form id="contact-form" class="contact-form">
+            <label for="name">Name</label>
             <input type="text" id="name" placeholder="Your name">
-            <label>Email:</label>
+            <label for="email">Email</label>
             <input type="email" id="email" placeholder="Your email">
-            <label>Message:</label>
+            <label for="message">Message</label>
             <textarea id="message" placeholder="Your message"></textarea>
-            <button type="submit">Send</button>
+            <button type="submit">Send Message</button>
         </form>
     </div>
-    <div class="contact-info-box">
-        <h2>Connect with Me</h2>
-        <p>Telegram: <a href="https://t.me/seventeenmever" target="_blank">@seventeenmever</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/ibrohim-pulatov-18150a3b1 " target="_blank">Ibrohim Pulatov</a></p>
-        <p>GitHub: <a href="https://github.com/7teenmever" target="_blank">7teenmever</a></p>
-    </div>
 </section>
-<button id="theme-toggle">🌙</button>
+<footer class="footer">
+    <div class="footer-content">
+        <h2>Connect with Me</h2>
+        <p>Telegram: <a href="https://t.me/seventeenmever" target="_blank" rel="noopener noreferrer">@seventeenmever</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/ibrohim-pulatov-18150a3b1" target="_blank" rel="noopener noreferrer">Ibrohim Pulatov</a></p>
+        <p>GitHub: <a href="https://github.com/7teenmever" target="_blank" rel="noopener noreferrer">7teenmever</a></p>
+    </div>
+</footer>
 </body>
 </html>
