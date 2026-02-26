@@ -127,6 +127,12 @@ blockquote {
     margin-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
 .about-box,.skills-box {
     background: #f9f9f9;
     padding: 1.5rem;
