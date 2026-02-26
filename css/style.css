@@ -103,7 +103,13 @@ section {
 #hero {
     text-align: center;
     padding: 150px 20px 100px;
-    background: linear-gradient(120deg, var(--accent-color), #6c5ce7);
+    background:
+        linear-gradient(rgba(7,25,52,0.58), rgba(7,25,52,0.58)),
+        url("../images/ChatGPT Image Feb 26, 2026, 08_09_38 PM.png"),
+        linear-gradient(120deg, var(--accent-color), #6c5ce7);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #fff;
 }
 #hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
