@@ -92,32 +92,24 @@ blockquote {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
-    padding-top: 4rem;
-    background-image: url('../images/Mever-background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    color: #fff;
+    padding: 6rem 2rem 3rem;
+    background: #f3f6fb;
+    color: #1f2937;
 }
 
-#hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4); 
-    z-index: 0;
+#hero h2 {
+    max-width: 900px;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
 }
 
-#hero h2,
 #hero p {
-    position: relative;
-    z-index: 1;
+    max-width: 720px;
+    color: #4b5563;
+    font-size: 1.1rem;
 }
 
 .about-layout {
@@ -285,4 +277,13 @@ body.dark-theme .skills-container .skill {
 
 body.dark-theme .project-link {
     color: #3399ff;
+}
+
+body.dark-theme #hero {
+    background: #0f0f0f;
+    color: #f5f7fa;
+}
+
+body.dark-theme #hero p {
+    color: #bcc7d8;
 }
