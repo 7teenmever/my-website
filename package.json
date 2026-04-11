@@ -1,24 +1,28 @@
 {
-  "name": "my-website",
-  "version": "1.0.0",
-  "description": "Web-Site for Assessment 1",
-  "main": "index.js",
+  "name": "mever-portfolio",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Personal portfolio website for Ibrohim (Mever), focused on cybersecurity, development, and polished frontend UX.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check": "node --check js/main.js",
+    "preview": "python3 -m http.server 8000"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/7teenmever/my-website.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "portfolio",
+    "cybersecurity",
+    "frontend",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Ibrohim Pulatov",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/7teenmever/my-website/issues"
   },
-  "homepage": "https://github.com/7teenmever/my-website#readme",
-  "dependencies": {
-    "express": "^5.2.1"
-  }
+  "homepage": "https://7teenmever.github.io/my-website/"
 }

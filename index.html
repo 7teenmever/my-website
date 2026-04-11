@@ -1,133 +1,390 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Personal Portfolio - Mever</title>
-<link rel="stylesheet" href="css/style.css">
-<script defer src="js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mever - Cybersecurity & Developer</title>
+
+  <meta name="description" content="Ibrohim (Mever) - cybersecurity student, C/C++ developer, and frontend enthusiast from Uzbekistan.">
+  <meta name="keywords" content="cybersecurity, developer, C++, Python, portfolio, Uzbekistan, Tashkent">
+  <meta name="author" content="Ibrohim Pulatov">
+  <meta name="theme-color" content="#050508">
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href="https://7teenmever.github.io/my-website/">
+
+  <meta property="og:title" content="Mever - Cybersecurity & Developer">
+  <meta property="og:description" content="Cybersecurity student and developer portfolio from Tashkent with a polished bilingual one-page experience.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://7teenmever.github.io/my-website/">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mever - Cybersecurity & Developer">
+  <meta name="twitter:description" content="Cybersecurity student and developer portfolio from Tashkent with a polished bilingual one-page experience.">
+
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const savedLang = localStorage.getItem('lang');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const nextTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        const nextLang = savedLang || (navigator.language && navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en');
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        document.documentElement.lang = nextLang;
+      } catch {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.lang = 'en';
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ibrohim Pulatov",
+      "alternateName": "Mever",
+      "jobTitle": "Cybersecurity Student",
+      "url": "https://7teenmever.github.io/my-website/",
+      "sameAs": [
+        "https://github.com/7teenmever",
+        "https://www.linkedin.com/in/ibrohim-pulatov-18150a3b1",
+        "https://t.me/seventeenmever"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tashkent",
+        "addressCountry": "Uzbekistan"
+      }
+    }
+  </script>
 </head>
 <body>
-<header class="header">
-    <div class="logo">Mever</div>
-    <div class="header-controls">
-        <nav class="nav">
-            <a href="#hero">Home</a>
-            <a href="#about-skills">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact-me">Contact Me</a>
-        </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+  <a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to content</a>
+
+  <noscript>
+    <div class="noscript">This portfolio looks best with JavaScript enabled.</div>
+  </noscript>
+
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+  <nav id="navbar" aria-label="Primary">
+    <div class="container">
+      <a href="#hero" class="nav-logo" aria-label="Mever home"><span>M</span>ever</a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" data-i18n="nav.home">Home</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button class="ctrl-btn" id="langBtn" type="button">RU</button>
+        <button class="ctrl-btn theme-btn" id="themeBtn" type="button">☀️</button>
+        <button class="hamburger" id="hamburger" type="button" aria-controls="navLinks" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-</header>
-<section id="hero">
-    <h2>Hi, I'm Ibrohim also known as Mever</h2>
-    <p>Cybersecurity Student & C/C++ Developer</p>
-</section>
-<section id="about-skills">
-    <div class="about-layout">
-        <article class="about-box">
-            <h2>About Me</h2>
-            <p class="about-text">I am a cybersecurity student focused on building a strong technical foundation and solving real problems through code. Right now, I am actively studying the Linux system environment and improving my understanding of how secure systems are built and maintained.</p>
-            <p class="about-text">I am learning programming languages such as C/C++, Python, and Frontend technologies (HTML, CSS, JavaScript). Along with theory, I practice by building small projects, improving my Git workflow, and exploring secure coding principles so I can grow into a reliable developer with a security-first mindset.</p>
-        </article>
-        <aside class="skills-box">
-            <h3>My Skills</h3>
-            <div class="skills-groups">
-                <div class="skill-group">
-                    <h4>Programming</h4>
-                    <div class="skills-container">
-                        <div class="skill"><span>C</span></div>
-                        <div class="skill"><span>C++</span></div>
-                        <div class="skill"><span>Python</span></div>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <h4>Frontend</h4>
-                    <div class="skills-container">
-                        <div class="skill"><span>HTML</span></div>
-                        <div class="skill"><span>CSS</span></div>
-                        <div class="skill"><span>JavaScript</span></div>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <h4>System & Tools</h4>
-                    <div class="skills-container">
-                        <div class="skill"><span>Linux</span></div>
-                        <div class="skill"><span>Git</span></div>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <h4>Security & Network</h4>
-                    <div class="skills-container">
-                        <div class="skill"><span>Networking Basics</span></div>
-                        <div class="skill"><span>Cybersecurity Basics</span></div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-    </div>
-    <div class="goal-box">
-        <h3>My Goal</h3>
-        <blockquote class="goal-quote">"My dream is to become a strong specialist in cybersecurity and game development, creating secure and valuable products."</blockquote>
-    </div>
-</section>
-<section id="projects">
-    <h2>My Projects</h2>
-    <div class="projects-container">
-        <div class="project-card project-cpp-card">
-            <div class="project-head">
-                <span class="project-icon project-icon-cpp">C++</span>
-                <h3>C++ Projects</h3>
-            </div>
-            <p class="project-subtitle">First semester projects</p>
-            <p>This repository contains my first semester C++ works and practical tasks.</p>
-            <a class="project-link" href="https://github.com/7teenmever/C-.git" target="_blank" rel="noopener noreferrer">View My Works</a>
+  </nav>
+
+  <button class="nav-overlay" id="navOverlay" type="button" aria-hidden="true" tabindex="-1"></button>
+
+  <main id="main-content">
+    <section id="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-label" data-i18n="hero.hello">Hello, World</div>
+
+          <h1 class="hero-name" id="hero-title">
+            <span data-i18n="hero.iam">I'm </span><span class="c1 glitch" data-text="Ibrohim">Ibrohim</span><br>
+            <span class="c2">Mever</span>
+          </h1>
+
+          <p class="hero-sub" aria-live="polite" aria-atomic="true">
+            <span id="typed"></span><span class="cursor" aria-hidden="true"></span>
+          </p>
+
+          <p class="hero-desc" data-i18n="hero.desc">
+            I build skill-focused projects, improve my Linux and Git workflow, and grow into a security-minded engineer who cares about both clean code and real-world impact.
+          </p>
+
+          <ul class="hero-tags" aria-label="Focus areas">
+            <li class="hero-tag" data-i18n="hero.tag1">Security-first mindset</li>
+            <li class="hero-tag" data-i18n="hero.tag2">C/C++ foundations</li>
+            <li class="hero-tag" data-i18n="hero.tag3">Linux workflow</li>
+            <li class="hero-tag" data-i18n="hero.tag4">Frontend polish</li>
+          </ul>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary" data-i18n="hero.btn1">View Projects</a>
+            <a href="#contact" class="btn btn-outline" data-i18n="hero.btn2">Contact Me</a>
+          </div>
         </div>
-        <div class="project-card">
-            <div class="project-head">
-                <span class="project-icon project-icon-bank">BNK</span>
-                <h3>Banking System</h3>
+      </div>
+
+      <div class="scroll-hint">
+        <span data-i18n="hero.scroll">scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="s-head reveal">
+          <div class="s-label" data-i18n="about.label">About</div>
+          <h2 class="s-title" id="about-title" data-i18n="about.title">Who Am I?</h2>
+          <div class="s-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal d1">
+            <p data-i18n="about.p1">I am a cybersecurity student focused on building a strong technical foundation and solving real problems through code.</p>
+            <p data-i18n="about.p2">Right now, I am actively studying the Linux system environment and improving my understanding of how secure systems are built and maintained.</p>
+            <p data-i18n="about.p3">I practice by building small projects, improving my Git workflow, and exploring secure coding principles - growing into a reliable developer with a security-first mindset.</p>
+            <blockquote class="goal-quote" data-i18n="about.quote">
+              "My dream is to become a strong specialist in cybersecurity and game development, creating secure and valuable products."
+            </blockquote>
+          </div>
+
+          <div class="terminal reveal d2" aria-label="Terminal style introduction">
+            <div class="t-header">
+              <div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>
+              <span class="t-name">mever@portfolio ~</span>
             </div>
-            <p class="project-subtitle">Study project</p>
-            <p>A simple banking simulation with login, balance tracking, and transactions.</p>
-            <span class="project-link project-link-disabled">Link coming soon</span>
-        </div>
-        <div class="project-card">
-            <div class="project-head">
-                <span class="project-icon project-icon-web">WEB</span>
-                <h3>Personal Portfolio</h3>
+            <div class="t-body">
+              <div><span class="p">$ </span><span class="c">whoami</span></div>
+              <div class="o">Ibrohim Pulatov <span class="h">(Mever)</span></div>
+              <br>
+              <div><span class="p">$ </span><span class="c">cat location.txt</span></div>
+              <div class="o">Tashkent, <span class="h">Uzbekistan</span></div>
+              <br>
+              <div><span class="p">$ </span><span class="c">cat status.txt</span></div>
+              <div class="o">Cybersecurity Student @ <span class="h">IDU</span></div>
+              <br>
+              <div><span class="p">$ </span><span class="c">ls interests/</span></div>
+              <div class="o"><span class="h">cybersecurity/</span> C++/ linux/ gamedev/</div>
+              <br>
+              <div><span class="p">$ </span><span class="c">echo $GOAL</span></div>
+              <div class="o">"<span class="h">secure &amp; valuable products</span>"</div>
+              <br>
+              <div><span class="p">$ <span class="t-blink"></span></span></div>
             </div>
-            <p class="project-subtitle">Frontend project</p>
-            <p>This responsive portfolio website built with HTML, CSS, and JavaScript.</p>
-            <span class="project-link project-link-disabled">Link coming soon</span>
+          </div>
         </div>
-    </div>
-</section>
-<section id="contact-me">
-    <div class="contact-form-box">
-        <div class="contact-header">
-            <h2>Contact Me</h2>
-            <p>Have an idea, project, or collaboration in mind? Send me a message.</p>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="s-head reveal">
+          <div class="s-label" data-i18n="skills.label">Skills</div>
+          <h2 class="s-title" id="skills-title" data-i18n="skills.title">Tech Stack</h2>
+          <div class="s-line"></div>
         </div>
-        <form id="contact-form" class="contact-form">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Your name">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Your email">
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Your message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+
+        <div class="skills-grid">
+          <article class="sk-card reveal d1">
+            <div class="sk-cat"><i class="fas fa-code" aria-hidden="true"></i><span data-i18n="sk.prog">Programming</span></div>
+            <div class="sk-item">
+              <div class="sk-row"><span>C / C++</span><span class="sk-pct">70%</span></div>
+              <div class="sk-track"><div class="sk-fill" data-w="70"></div></div>
+            </div>
+            <div class="sk-item">
+              <div class="sk-row"><span>Python</span><span class="sk-pct">65%</span></div>
+              <div class="sk-track"><div class="sk-fill" data-w="65"></div></div>
+            </div>
+          </article>
+
+          <article class="sk-card reveal d2">
+            <div class="sk-cat"><i class="fas fa-globe" aria-hidden="true"></i><span data-i18n="sk.front">Frontend</span></div>
+            <div class="sk-item">
+              <div class="sk-row"><span>HTML / CSS</span><span class="sk-pct">80%</span></div>
+              <div class="sk-track"><div class="sk-fill" data-w="80"></div></div>
+            </div>
+            <div class="sk-item">
+              <div class="sk-row"><span>JavaScript</span><span class="sk-pct">60%</span></div>
+              <div class="sk-track"><div class="sk-fill" data-w="60"></div></div>
+            </div>
+          </article>
+
+          <article class="sk-card reveal d3">
+            <div class="sk-cat"><i class="fas fa-terminal" aria-hidden="true"></i><span data-i18n="sk.sys">System &amp; Tools</span></div>
+            <div class="sk-item">
+              <div class="sk-row"><span>Linux</span><span class="sk-pct">75%</span></div>
+              <div class="sk-track"><div class="sk-fill" data-w="75"></div></div>
+            </div>
+            <div class="sk-item">
+              <div class="sk-row"><span>Git</span><span class="sk-pct">68%</span></div>
+              <div class="sk-track"><div class="sk-fill" data-w="68"></div></div>
+            </div>
+          </article>
+
+          <article class="sk-card reveal d4">
+            <div class="sk-cat"><i class="fas fa-shield-alt" aria-hidden="true"></i><span data-i18n="sk.sec">Security</span></div>
+            <div class="sk-item">
+              <div class="sk-row"><span>Networking</span><span class="sk-pct">60%</span></div>
+              <div class="sk-track"><div class="sk-fill" data-w="60"></div></div>
+            </div>
+            <div class="sk-item">
+              <div class="sk-row"><span>Cybersecurity</span><span class="sk-pct">55%</span></div>
+              <div class="sk-track"><div class="sk-fill" data-w="55"></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="s-head reveal">
+          <div class="s-label" data-i18n="proj.label">Work</div>
+          <h2 class="s-title" id="projects-title" data-i18n="proj.title">My Projects</h2>
+          <div class="s-line"></div>
+        </div>
+
+        <div class="filter-row reveal" aria-label="Project categories">
+          <button class="f-tab active" type="button" data-f="all" data-i18n="proj.all" aria-pressed="true">All</button>
+          <button class="f-tab" type="button" data-f="cpp" aria-pressed="false">C++</button>
+          <button class="f-tab" type="button" data-f="web" aria-pressed="false">Web</button>
+          <button class="f-tab" type="button" data-f="security" data-i18n="proj.sec" aria-pressed="false">Security</button>
+        </div>
+
+        <div class="proj-grid">
+          <article class="proj-card reveal d1" data-cat="cpp">
+            <span class="proj-badge b-cpp">C++</span>
+            <h3 class="proj-title" data-i18n="proj.cpp.t">C++ Projects</h3>
+            <p class="proj-desc" data-i18n="proj.cpp.d">First semester practicals - tasks covering core C++ concepts, OOP and algorithms.</p>
+            <div class="proj-foot">
+              <span class="proj-status" data-i18n="proj.done">Completed</span>
+              <a href="https://github.com/7teenmever/C-" target="_blank" rel="noopener noreferrer" class="proj-link">
+                <span data-i18n="proj.gh">GitHub</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="proj-card reveal d2" data-cat="cpp">
+            <span class="proj-badge b-cpp">C++</span>
+            <h3 class="proj-title" data-i18n="proj.bank.t">Banking System</h3>
+            <p class="proj-desc" data-i18n="proj.bank.d">A console banking simulation with login, balance management and transaction history.</p>
+            <div class="proj-foot">
+              <span class="proj-status" data-i18n="proj.soon">Coming Soon</span>
+              <span class="proj-link dead"><span data-i18n="proj.wip">Soon</span> <i class="fas fa-lock" aria-hidden="true"></i></span>
+            </div>
+          </article>
+
+          <article class="proj-card reveal d3" data-cat="web">
+            <span class="proj-badge b-web">Web</span>
+            <h3 class="proj-title" data-i18n="proj.port.t">Personal Portfolio</h3>
+            <p class="proj-desc" data-i18n="proj.port.d">This site - HTML, CSS, and JavaScript with matrix background, scroll animation, theme switcher, and bilingual support.</p>
+            <div class="proj-foot">
+              <span class="proj-status" data-i18n="proj.live">Live</span>
+              <a href="https://7teenmever.github.io/my-website/" target="_blank" rel="noopener noreferrer" class="proj-link">
+                <span data-i18n="proj.view">View</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="proj-card reveal d4" data-cat="security">
+            <span class="proj-badge b-security" data-i18n="proj.sec">Security</span>
+            <h3 class="proj-title" data-i18n="proj.lab.t">Security Lab Notes</h3>
+            <p class="proj-desc" data-i18n="proj.lab.d">An evolving collection of Linux hardening notes, networking exercises, and security learning write-ups.</p>
+            <div class="proj-foot">
+              <span class="proj-status" data-i18n="proj.active">In Progress</span>
+              <span class="proj-link dead"><span data-i18n="proj.inprogress">Growing</span> <i class="fas fa-wrench" aria-hidden="true"></i></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="s-head reveal">
+          <div class="s-label" data-i18n="con.label">Contact</div>
+          <h2 class="s-title" id="contact-title" data-i18n="con.title">Get In Touch</h2>
+          <div class="s-line"></div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="reveal d1">
+            <h3 class="ci-title" data-i18n="con.sub">Let's Talk</h3>
+            <p class="ci-desc" data-i18n="con.desc">
+              Have an idea, project or collaboration in mind? I'm always open to interesting opportunities and conversations.
+            </p>
+
+            <div class="soc-links">
+              <a href="https://t.me/seventeenmever" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="Telegram profile">
+                <i class="fab fa-telegram" aria-hidden="true"></i><span>@seventeenmever</span>
+              </a>
+              <a href="https://github.com/7teenmever" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="GitHub profile">
+                <i class="fab fa-github" aria-hidden="true"></i><span>7teenmever</span>
+              </a>
+              <a href="https://www.linkedin.com/in/ibrohim-pulatov-18150a3b1" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="LinkedIn profile">
+                <i class="fab fa-linkedin" aria-hidden="true"></i><span>Ibrohim Pulatov</span>
+              </a>
+            </div>
+          </div>
+
+          <form class="c-form reveal d2" id="cForm" action="https://formspree.io/f/xjgpnwkw" method="POST">
+            <p class="form-note" data-i18n="con.note">
+              The form is ready for Formspree. Until then, Telegram or LinkedIn are the fastest ways to reach me.
+            </p>
+
+            <div class="f-row">
+              <div class="f-grp">
+                <label for="fname" data-i18n="con.name">Name</label>
+                <input type="text" id="fname" name="name" autocomplete="name" required data-i18n-placeholder="con.namePh" placeholder="John Doe">
+              </div>
+              <div class="f-grp">
+                <label for="femail" data-i18n="con.email">Email</label>
+                <input type="email" id="femail" name="email" autocomplete="email" inputmode="email" required data-i18n-placeholder="con.emailPh" placeholder="john@example.com">
+              </div>
+            </div>
+
+            <div class="f-grp">
+              <label for="fsubj" data-i18n="con.subj">Subject</label>
+              <input type="text" id="fsubj" name="subject" maxlength="120" data-i18n-placeholder="con.subjPh" placeholder="Project idea...">
+            </div>
+
+            <div class="f-grp">
+              <label for="fmsg" data-i18n="con.msg">Message</label>
+              <textarea id="fmsg" name="message" minlength="10" required data-i18n-placeholder="con.msgPh" placeholder="Tell me about your project..."></textarea>
+            </div>
+
+            <div class="f-msg" id="fStatus" aria-live="polite"></div>
+
+            <button type="submit" class="btn btn-primary" id="fBtn">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i>
+              <span data-i18n="con.send">Send Message</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-inner">
+        <span class="foot-logo">Mever</span>
+        <span id="footCopy" data-i18n="foot.copy">© 2026 Ibrohim Pulatov. Built with care in Tashkent.</span>
+        <span class="foot-ver">v2.1</span>
+      </div>
     </div>
-</section>
-<footer class="footer">
-    <div class="footer-content">
-        <h2>Connect with Me</h2>
-        <p>Telegram: <a href="https://t.me/seventeenmever" target="_blank" rel="noopener noreferrer">@seventeenmever</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/ibrohim-pulatov-18150a3b1" target="_blank" rel="noopener noreferrer">Ibrohim Pulatov</a></p>
-        <p>GitHub: <a href="https://github.com/7teenmever" target="_blank" rel="noopener noreferrer">7teenmever</a></p>
-    </div>
-</footer>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

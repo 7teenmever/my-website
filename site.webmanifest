@@ -1,0 +1,16 @@
+{
+  "name": "Mever Portfolio",
+  "short_name": "Mever",
+  "start_url": "/my-website/",
+  "display": "standalone",
+  "background_color": "#050508",
+  "theme_color": "#050508",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
