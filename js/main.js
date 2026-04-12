@@ -78,7 +78,7 @@ const T = {
     'con.emailPh': 'john@example.com',
     'con.subjPh': 'Project idea...',
     'con.msgPh': 'Tell me about your project...',
-    'foot.copy': '© {year} Ibrohim Pulatov. Built with care in Tashkent.',
+    'foot.copy': '© {year} Ibrohim Pulatov · Built with ❤️ & ☕',
     typed: ['Cybersecurity Student', 'C/C++ Developer', 'Linux Enthusiast', 'Problem Solver']
   },
   ru: {
@@ -160,7 +160,7 @@ const T = {
     'con.emailPh': 'ivan@example.com',
     'con.subjPh': 'Идея проекта...',
     'con.msgPh': 'Расскажи о своём проекте...',
-    'foot.copy': '© {year} Иброхим Пулатов. Сделано с вниманием в Ташкенте.',
+    'foot.copy': '© {year} Иброхим Пулатов · Сделано с ❤️ и ☕',
     typed: ['Студент кибербезопасности', 'C/C++ разработчик', 'Любитель Linux', 'Решатель задач']
   }
 };
