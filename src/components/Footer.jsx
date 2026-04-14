@@ -14,7 +14,7 @@ export default function Footer() {
           <span id="footCopy">
             {t(lang, 'foot.copy', { year })}
           </span>
-          <span className="foot-ver">v7.0</span>
+          <span className="foot-ver">v6.7</span>
         </div>
       </div>
     </footer>
