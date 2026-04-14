@@ -1,11 +1,23 @@
 {
   "name": "mever-portfolio",
-  "version": "2.1.0",
+  "version": "7.0.0",
   "private": true,
-  "description": "Personal portfolio website for Ibrohim (Mever), focused on cybersecurity, development, and polished frontend UX.",
+  "description": "Personal portfolio website for Ibrohim (Mever), focused on cybersecurity, development, and polished frontend UX. Built with React 18 + Vite.",
+  "type": "module",
   "scripts": {
-    "check": "node --check js/main.js",
-    "preview": "python3 -m http.server 8000"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .jsx,.js"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.51.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.1.6"
   },
   "repository": {
     "type": "git",
@@ -15,14 +27,20 @@
     "portfolio",
     "cybersecurity",
     "frontend",
-    "html",
-    "css",
-    "javascript"
+    "react",
+    "vite"
   ],
   "author": "Ibrohim Pulatov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/7teenmever/my-website/issues"
   },
-  "homepage": "https://7teenmever.github.io/my-website/"
+  "homepage": "https://7teenmever.github.io/my-website/",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-hook-form": "^7.72.1",
+    "vite": "^8.0.8"
+  }
 }
