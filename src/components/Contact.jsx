@@ -43,8 +43,6 @@ export default function Contact() {
 
       reset();
       setStatusMessage({ type: 'ok', key: 'con.success' });
-
-      // Clear message after 5 seconds
       setTimeout(() => setStatusMessage({ type: '', key: '' }), 5000);
     } catch (error) {
       setStatusMessage({ type: 'err', key: 'con.error' });

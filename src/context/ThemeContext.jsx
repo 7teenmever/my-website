@@ -26,7 +26,6 @@ export function ThemeProvider({ children }) {
     }
   });
 
-  // Persist theme to localStorage and apply to DOM
   useEffect(() => {
     try {
       localStorage.setItem('theme', theme);
@@ -36,7 +35,6 @@ export function ThemeProvider({ children }) {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
-  // Persist language to localStorage and apply to DOM
   useEffect(() => {
     try {
       localStorage.setItem('lang', lang);

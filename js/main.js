@@ -177,7 +177,6 @@ const storage = {
     try {
       window.localStorage.setItem(key, value);
     } catch {
-      /* Ignore storage access issues in restricted browsers. */
     }
   }
 };

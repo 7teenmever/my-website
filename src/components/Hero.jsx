@@ -8,8 +8,6 @@ export default function Hero() {
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-
-  // Typing animation effect
   useEffect(() => {
     const phrases = translations[lang]?.typed ?? translations.en.typed;
     const currentPhrase = phrases[phraseIndex % phrases.length];

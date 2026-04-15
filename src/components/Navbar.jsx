@@ -8,7 +8,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Handle outside clicks
   useEffect(() => {
     function handleClick(e) {
       if (isMenuOpen && !e.target.closest('.nav-links') && !e.target.closest('.hamburger')) {
@@ -21,7 +20,6 @@ export default function Navbar() {
     }
   }, [isMenuOpen]);
 
-  // Handle scroll to update navbar state and active section
   useEffect(() => {
     function handleScroll() {
       setIsScrolled(window.scrollY > 20);
@@ -43,7 +41,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on Escape key
   useEffect(() => {
     function handleEscape(e) {
       if (e.key === 'Escape' && isMenuOpen) {
@@ -54,7 +51,6 @@ export default function Navbar() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isMenuOpen]);
 
-  // Close menu on larger screens
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth > 768 && isMenuOpen) {

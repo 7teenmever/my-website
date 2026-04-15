@@ -19,7 +19,6 @@ export default function MatrixCanvas() {
     running: false
   });
 
-  // Initialize and manage matrix animation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -94,17 +93,13 @@ export default function MatrixCanvas() {
       matrixState.current.frame = requestAnimationFrame(drawMatrix);
     }
 
-    // Initial setup
     resizeCanvas();
     startMatrix();
-
-    // Handle resize
     function handleResize() {
       resizeCanvas();
       startMatrix();
     }
 
-    // Handle visibility change
     function handleVisibilityChange() {
       if (document.hidden) {
         matrixState.current.running = false;
@@ -112,13 +107,10 @@ export default function MatrixCanvas() {
       } else {
         startMatrix();
       }
-    }
-
     window.addEventListener('resize', handleResize);
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
+    return () =>veEventListener('resize', handleResize);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       matrixState.current.running = false;
       if (matrixState.current.frame) cancelAnimationFrame(matrixState.current.frame);
