@@ -1,5 +1,4 @@
 node_modules/
-.codex
 dist/
 build/
 coverage/
