@@ -7,7 +7,7 @@ export const projects = [
     badge: 'C++',
     badgeClass: 'b-cpp',
     status: 'proj.done',
-    link: 'https://github.com/7teenmever/C-',
+    link: 'https://github.com/7teenmever/cpp',
     linkText: 'proj.gh',
     isExternal: true
   },
